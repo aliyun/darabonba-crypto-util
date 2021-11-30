@@ -1,0 +1,90 @@
+{
+  "scope": "darabonba",
+  "name": "SignatureUtil",
+  "version": "0.0.1",
+  "main": "./signature.dara",
+  "maintainers": [
+    {
+      "name": "Alibaba Cloud SDK",
+      "email": "sdk-team@alibabacloud.com"
+    }
+  ],
+  "java": {
+    "package": "com.aliyun.darabonba.signature",
+    "className": "Signer",
+    "packageInfo": {
+      "description": "Darabonba Util SDK for Alibaba Cloud JAVA SDK",
+      "url": "https://github.com/aliyun/darabonba-crypto-util",
+      "licenseName": "The Apache License, Version 2.0",
+      "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.txt",
+      "developerId": "aliyunproducts",
+      "developerName": "Aliyun SDK",
+      "developerEmail": "aliyunsdk@aliyun.com"
+    }
+  },
+  "releases": {
+    "java": "com.aliyun:darabonba-signature-util:0.0.1",
+    "go": "github.com/alibabacloud-go/darabonba-crypto-util/signature/golang/client:v0.0.1",
+    "ts": "@alicloud/darabonba-signature-util:^0.0.1"
+  },
+  "libraries": {
+  },
+  "csharp": {
+    "className": "Signer",
+    "namespace": "AlibabaCloud.DarabonbaSignatureUtil",
+    "packageInfo": {
+      "name": "util",
+      "title": "alibabacloud/darabonba-signature-util",
+      "description": "Darabonba Util Library for Alibaba Cloud .NET SDK",
+      "company": "Alibaba Cloud",
+      "property": {
+        "PackageTags": "Darabonba Util Library",
+        "Copyright": "©2009-present Alibaba Cloud",
+        "PackageProjectUrl": "https://github.com/aliyun/darabonba-crypto-util",
+        "PackageIconUrl": "https://www.alibabacloud.com/favicon.ico"
+      }
+    }
+  },
+  "php": {
+    "package": "AlibabaCloud.Darabonba.SignatureUtil",
+    "clientName": "Signer",
+    "packageInfo": {
+      "name": "darabonba/util",
+      "desc": "Darabonba Util Library for Alibaba Cloud PHP SDK",
+      "github": "https://github.com/aliyun/darabonba-crypto-util",
+      "files": {
+        "LICENSE": "../LICENSE"
+      }
+    }
+  },
+  "python": {
+    "package": "alibabaCloud-darabonba-signature-util",
+    "clientName": "signer",
+    "packageInfo": {
+      "name": "alibabaCloud-darabonba-signature-util",
+      "desc": "Darabonba Util Library for Alibaba Cloud Python SDK",
+      "github": "https://github.com/aliyun/darabonba-crypto-util",
+      "author": "Alibaba Cloud SDK",
+      "email": "sdk-team@alibabacloud.com"
+    }
+  },
+  "python2": {
+    "package": "alibabaCloud-darabonba-signature-util",
+    "clientName": "signer",
+    "packageInfo": {
+      "name": "alibabaCloud-darabonba-signature-util-py2",
+      "desc": "Darabonba Util Library for Alibaba Cloud Python2 SDK",
+      "github": "https://github.com/aliyun/darabonba-crypto-util",
+      "author": "Alibaba Cloud SDK",
+      "email": "sdk-team@alibabacloud.com"
+    }
+  },
+  "cpp": {
+    "packageInfo": {
+      "git": {
+        "scope": "alibabaCloud",
+        "project": "tea-signature-util"
+      }
+    }
+  }
+}
