@@ -24,7 +24,7 @@
   },
   "releases": {
     "java": "com.aliyun:darabonba-encode-util:0.0.1",
-    "go": "github.com/alibabacloud-go/darabonba-crypto-util/encode/golang/client:v0.0.1",
+    "go": "github.com/alibabacloud-go/darabonba-encode-util/client:v0.0.1",
     "ts": "@alicloud/darabonba-encode-util:^0.0.1"
   },
   "libraries": {

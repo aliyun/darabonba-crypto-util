@@ -1,4 +1,4 @@
-module github.com/alibabacloud-go/darabonba-crypto-util/signature/golang
+module github.com/alibabacloud-go/darabonba-signature-util
 
 go 1.14
 

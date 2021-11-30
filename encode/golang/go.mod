@@ -1,4 +1,4 @@
-module github.com/alibabacloud-go/darabonba-crypto-util/encode/golang
+module github.com/alibabacloud-go/darabonba-encode-util
 
 go 1.14
 

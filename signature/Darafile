@@ -24,7 +24,7 @@
   },
   "releases": {
     "java": "com.aliyun:darabonba-signature-util:0.0.1",
-    "go": "github.com/alibabacloud-go/darabonba-crypto-util/signature/golang/client:v0.0.1",
+    "go": "github.com/alibabacloud-go/darabonba-signature-util/client:v0.0.1",
     "ts": "@alicloud/darabonba-signature-util:^0.0.1"
   },
   "libraries": {
