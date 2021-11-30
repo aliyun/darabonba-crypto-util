@@ -1,0 +1,90 @@
+{
+  "scope": "darabonba",
+  "name": "EncodeUtil",
+  "version": "0.0.1",
+  "main": "./encode.dara",
+  "maintainers": [
+    {
+      "name": "Alibaba Cloud SDK",
+      "email": "sdk-darabonbam@alibabacloud.com"
+    }
+  ],
+  "java": {
+    "package": "com.aliyun.darabonba.encode",
+    "className": "Encoder",
+    "packageInfo": {
+      "description": "Darabonba Encode Util SDK for Alibaba Cloud JAVA SDK",
+      "url": "https://github.com/aliyun/darabonba-crypto-util",
+      "licenseName": "The Apache License, Version 2.0",
+      "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.txt",
+      "developerId": "aliyunproducts",
+      "developerName": "Aliyun SDK",
+      "developerEmail": "aliyunsdk@aliyun.com"
+    }
+  },
+  "releases": {
+    "java": "com.aliyun:darabonba-encode-util:0.0.1",
+    "go": "github.com/alibabacloud-go/darabonba-crypto-util/encode/golang/client:v0.0.1",
+    "ts": "@alicloud/darabonba-encode-util:^0.0.1"
+  },
+  "libraries": {
+  },
+  "csharp": {
+    "className": "Encoder",
+    "namespace": "AlibabaCloud.DarabonbaEncodeUtil",
+    "packageInfo": {
+      "name": "util",
+      "title": "alibabacloud/darabonba-encode-util",
+      "description": "Darabonba Util Library for Alibaba Cloud .NET SDK",
+      "company": "Alibaba Cloud",
+      "property": {
+        "PackageTags": "Darabonba Util Library",
+        "Copyright": "©2009-present Alibaba Cloud",
+        "PackageProjectUrl": "https://github.com/aliyun/darabonba-crypto-util",
+        "PackageIconUrl": "https://www.alibabacloud.com/favicon.ico"
+      }
+    }
+  },
+  "php": {
+    "package": "AlibabaCloud.Darabonba.EncodeUtil",
+    "clientName": "Encoder",
+    "packageInfo": {
+      "name": "darabonba/util",
+      "desc": "Darabonba Util Library for Alibaba Cloud PHP SDK",
+      "github": "https://github.com/aliyun/darabonba-crypto-util",
+      "files": {
+        "LICENSE": "../LICENSE"
+      }
+    }
+  },
+  "python": {
+    "package": "alibabaCloud-darabonba-encode-util",
+    "clientName": "encoder",
+    "packageInfo": {
+      "name": "alibabaCloud-darabonba-encode-util",
+      "desc": "Darabonba Util Library for Alibaba Cloud Python SDK",
+      "github": "https://github.com/aliyun/darabonba-crypto-util",
+      "author": "Alibaba Cloud SDK",
+      "email": "sdk-darabonbam@alibabacloud.com"
+    }
+  },
+  "python2": {
+    "package": "alibabaCloud-darabonba-encode-util",
+    "clientName": "encoder",
+    "packageInfo": {
+      "name": "alibabaCloud-darabonba-encode-util-py2",
+      "desc": "Darabonba Util Library for Alibaba Cloud Python2 SDK",
+      "github": "https://github.com/aliyun/darabonba-crypto-util",
+      "author": "Alibaba Cloud SDK",
+      "email": "sdk-darabonbam@alibabacloud.com"
+    }
+  },
+  "cpp": {
+    "packageInfo": {
+      "git": {
+        "scope": "alibabaCloud",
+        "project": "darabonba-encode-util"
+      }
+    }
+  }
+}
