@@ -1,7 +1,7 @@
 {
   "scope": "darabonba",
   "name": "SignatureUtil",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./signature.dara",
   "maintainers": [
     {
@@ -25,7 +25,9 @@
   "releases": {
     "java": "com.aliyun:darabonba-signature-util:0.0.1",
     "go": "github.com/alibabacloud-go/darabonba-signature-util/client:v0.0.1",
-    "ts": "@alicloud/darabonba-signature-util:^0.0.1"
+    "ts": "@alicloud/darabonba-signature-util:^0.0.1",
+    "python": "alibabacloud_darabonba_signature_util:0.0.1",
+		"python2": "alibabacloud_darabonba_signature_util_py2:0.0.1"
   },
   "libraries": {
   },
@@ -58,10 +60,10 @@
     }
   },
   "python": {
-    "package": "alibabaCloud-darabonba-signature-util",
+    "package": "alibabacloud_darabonba_signature_util",
     "clientName": "signer",
     "packageInfo": {
-      "name": "alibabaCloud-darabonba-signature-util",
+      "name": "alibabacloud_darabonba_signature_util",
       "desc": "Darabonba Util Library for Alibaba Cloud Python SDK",
       "github": "https://github.com/aliyun/darabonba-crypto-util",
       "author": "Alibaba Cloud SDK",
@@ -69,10 +71,10 @@
     }
   },
   "python2": {
-    "package": "alibabaCloud-darabonba-signature-util",
+    "package": "alibabacloud_darabonba_signature_util",
     "clientName": "signer",
     "packageInfo": {
-      "name": "alibabaCloud-darabonba-signature-util-py2",
+      "name": "alibabacloud_darabonba_signature_util_py2",
       "desc": "Darabonba Util Library for Alibaba Cloud Python2 SDK",
       "github": "https://github.com/aliyun/darabonba-crypto-util",
       "author": "Alibaba Cloud SDK",
