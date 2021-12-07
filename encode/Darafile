@@ -35,12 +35,12 @@
     "className": "Encoder",
     "namespace": "AlibabaCloud.DarabonbaEncodeUtil",
     "packageInfo": {
-      "name": "util",
+      "name": "encodeUtil",
       "title": "alibabacloud/darabonba-encode-util",
-      "description": "Darabonba Util Library for Alibaba Cloud .NET SDK",
+      "description": "Darabonba Encode Util Library for Alibaba Cloud .NET SDK",
       "company": "Alibaba Cloud",
       "property": {
-        "PackageTags": "Darabonba Util Library",
+        "PackageTags": "Darabonba Encode Util Library",
         "Copyright": "©2009-present Alibaba Cloud",
         "PackageProjectUrl": "https://github.com/aliyun/darabonba-crypto-util",
         "PackageIconUrl": "https://www.alibabacloud.com/favicon.ico"
