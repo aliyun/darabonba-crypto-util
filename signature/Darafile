@@ -35,12 +35,12 @@
     "className": "Signer",
     "namespace": "AlibabaCloud.DarabonbaSignatureUtil",
     "packageInfo": {
-      "name": "util",
+      "name": "signatureUtil",
       "title": "alibabacloud/darabonba-signature-util",
-      "description": "Darabonba Util Library for Alibaba Cloud .NET SDK",
+      "description": "Darabonba Signature Util Library for Alibaba Cloud .NET SDK",
       "company": "Alibaba Cloud",
       "property": {
-        "PackageTags": "Darabonba Util Library",
+        "PackageTags": "Darabonba Signature Util Library",
         "Copyright": "©2009-present Alibaba Cloud",
         "PackageProjectUrl": "https://github.com/aliyun/darabonba-crypto-util",
         "PackageIconUrl": "https://www.alibabacloud.com/favicon.ico"
