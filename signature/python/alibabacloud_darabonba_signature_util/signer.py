@@ -84,3 +84,15 @@ class Signer:
 
         key = load_pem_private_key(secret, password=None, backend=default_backend())
         return key.sign(string_to_sign, padding.PKCS1v15(), hashes.SHA256())
+    
+    @staticmethod
+    def md5sign(
+            string_to_sign: str,
+    ) -> bytes:
+        """
+        MD5 Signature
+        @param string_to_sign: string
+        @return: signed bytes
+        """
+        string_to_sign = string_to_sign.encode('utf-8')
+        return hashlib.md5(string_to_sign).digest()
