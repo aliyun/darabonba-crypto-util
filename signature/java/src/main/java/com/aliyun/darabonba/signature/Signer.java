@@ -11,6 +11,7 @@ import javax.crypto.Mac;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
 import java.security.KeyFactory;
 import java.security.PrivateKey;
 import java.security.Signature;
@@ -100,6 +101,18 @@ public class Signer {
             }
         }
         return accessKeySecret;
+    }
+
+    /**
+     * MD5 Signature
+     *
+     * @param stringToSign string
+     * @return signed bytes
+     */
+    public static byte[] MD5Sign(String stringToSign) throws Exception {
+        MessageDigest md = MessageDigest.getInstance("MD5");
+        byte[] signData = md.digest(stringToSign.getBytes(ENCODING));
+        return signData;
     }
 
 }
