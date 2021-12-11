@@ -72,7 +72,7 @@ namespace AlibabaCloud.DarabonbaSignatureUtil
             KeyParameter keyParameter = new KeyParameter(key);
             SM3Digest sm3 = new SM3Digest();
 
-            HMac mac = new HMac(sm3);//´øÃÜÔ¿µÄÔÓ´ÕËã·¨
+            HMac mac = new HMac(sm3);//ï¿½ï¿½ï¿½ï¿½Ô¿ï¿½ï¿½ï¿½Ó´ï¿½ï¿½ã·¨
             mac.Init(keyParameter);
             mac.BlockUpdate(msg, 0, msg.Length);
             byte[] signData = new byte[mac.GetMacSize()];
@@ -100,6 +100,18 @@ namespace AlibabaCloud.DarabonbaSignatureUtil
                     signData = rsa.SignData(Encoding.UTF8.GetBytes(stringToSign), sha256);
                 }
             }
+            return signData;
+        }
+
+        /**
+         * MD5 Signature
+         * @param stringToSign string
+         * @return signed bytes
+         */
+        public static byte[] MD5Sign(string stringToSign)
+        {
+            MD5 md5 = MD5.Create();
+            byte[] signData = md5.ComputeHash(Encoding.UTF8.GetBytes(stringToSign.ToCharArray()));
             return signData;
         }
 
