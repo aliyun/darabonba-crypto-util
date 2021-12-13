@@ -56,5 +56,10 @@ class ArrayTest extends TestCase
                 .'81d0358ee281b81512681f2820ecc681e10bc7b653f732f3e')),
             SignatureUtil::SHA256withRSASign('abcdefg', $secret)
         );
+
+         $this->assertEquals(
+            Utils::toBytes(hex2bin('7ac66c0f148de9519b8bd264312c4d64')),
+            SignatureUtil::MD5Sign('abcdefg')
+        );
     }
 }
