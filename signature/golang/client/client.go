@@ -7,6 +7,7 @@ package client
 import (
 	"crypto"
 	"crypto/hmac"
+	"crypto/md5"
 	"crypto/rand"
 	"crypto/rsa"
 	"crypto/sha1"
@@ -121,4 +122,10 @@ func formatPrivateKey(privateKey string) string {
 		privateKey += PEM_END
 	}
 	return privateKey
+}
+
+func Md5Sign(s *string) []byte {
+	h := md5.New()
+	h.Write([]byte(tea.StringValue(s)))
+	return h.Sum(nil)
 }
