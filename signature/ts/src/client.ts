@@ -65,4 +65,14 @@ export default class Client {
     return signature;
   }
 
+  /**
+   * MD5 Signature
+   *
+   * @param stringToSign string
+   * @return signed bytes
+   */
+  static MD5Sign(stringToSign: string): Buffer {
+    return crypto.createHash('md5').update(stringToSign, 'utf8').digest();
+  }
+
 }
