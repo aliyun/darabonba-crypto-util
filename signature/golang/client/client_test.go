@@ -88,3 +88,8 @@ func TestSHA256withRSASign(t *testing.T) {
 		"0c8b9f800d0b38a3a2b25d7b430d3ce7415cd184f87f602f9d55a1689756b71eaa3164f82bde25edf4737d0fa3da430"+
 		"81d0358ee281b81512681f2820ecc681e10bc7b653f732f3e", hex.EncodeToString(res))
 }
+
+func TestMd5Sign(t *testing.T) {
+	res := Md5Sign(tea.String("abcdefg"))
+	utils.AssertEqual(t, "7ac66c0f148de9519b8bd264312c4d64", hex.EncodeToString(res))
+}
