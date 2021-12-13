@@ -87,4 +87,9 @@ class SignatureUtil
         @openssl_sign($stringToSign, $ret, $privateKey, OPENSSL_ALGO_SHA256);
         return Utils::toBytes($ret);
     }
+
+    public static function MD5Sign($stringToSign)
+    {
+        return Utils::toBytes(md5($stringToSign, true));
+    }
 }
