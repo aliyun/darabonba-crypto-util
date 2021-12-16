@@ -90,6 +90,6 @@ func TestSHA256withRSASign(t *testing.T) {
 }
 
 func TestMd5Sign(t *testing.T) {
-	res := Md5Sign(tea.String("abcdefg"))
+	res := MD5Sign(tea.String("abcdefg"))
 	utils.AssertEqual(t, "7ac66c0f148de9519b8bd264312c4d64", hex.EncodeToString(res))
 }
