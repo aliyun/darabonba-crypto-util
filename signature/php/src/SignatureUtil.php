@@ -88,8 +88,23 @@ class SignatureUtil
         return Utils::toBytes($ret);
     }
 
+    /**
+     * MD5 Signature
+     * @param string $stringToSign string
+     * @return array signed bytes
+     */
     public static function MD5Sign($stringToSign)
     {
         return Utils::toBytes(md5($stringToSign, true));
+    }
+
+    /**
+     * MD5 Signature
+     * @param int[] $bytesToSign bytes
+     * @return array signed bytes
+     */
+    public static function MD5SignForBytes($bytesToSign)
+    {
+        return Utils::toBytes(md5(Utils::toString($bytesToSign), true));
     }
 }

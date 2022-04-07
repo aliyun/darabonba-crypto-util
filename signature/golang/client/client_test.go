@@ -93,3 +93,8 @@ func TestMd5Sign(t *testing.T) {
 	res := MD5Sign(tea.String("abcdefg"))
 	utils.AssertEqual(t, "7ac66c0f148de9519b8bd264312c4d64", hex.EncodeToString(res))
 }
+
+func TestMD5SignForBytes(t *testing.T) {
+	res := MD5SignForBytes([]byte(tea.String("abcdefg")))
+	utils.AssertEqual(t, "7ac66c0f148de9519b8bd264312c4d64", hex.EncodeToString(res))
+}

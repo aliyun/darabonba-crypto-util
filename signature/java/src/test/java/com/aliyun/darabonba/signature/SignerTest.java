@@ -104,4 +104,11 @@ public class SignerTest {
         byte[] signed = Signer.MD5Sign(stringToSign);
         Assert.assertEquals("7ac66c0f148de9519b8bd264312c4d64", Encoder.hexEncode(signed));
     }
+
+    @Test
+    public void MD5SignForBytesTest() throws Exception{
+        String stringToSign = "abcdefg";
+        byte[] signed = Signer.MD5SignForBytes(stringToSign.getBytes("UTF-8"));
+        Assert.assertEquals("7ac66c0f148de9519b8bd264312c4d64", Encoder.hexEncode(signed));
+    }
 }

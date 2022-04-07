@@ -115,4 +115,16 @@ public class Signer {
         return signData;
     }
 
+    /**
+     * MD5 Signature
+     *
+     * @param bytesToSign bytes
+     * @return signed bytes
+     */
+    public static byte[] MD5SignForBytes(byte[] bytesToSign) throws Exception {
+        MessageDigest md = MessageDigest.getInstance("MD5");
+        byte[] signData = md.digest(bytesToSign);
+        return signData;
+    }
+
 }

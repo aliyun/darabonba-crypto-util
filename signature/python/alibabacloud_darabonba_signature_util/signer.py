@@ -96,3 +96,14 @@ class Signer:
         """
         string_to_sign = string_to_sign.encode('utf-8')
         return hashlib.md5(string_to_sign).digest()
+
+    @staticmethod
+    def md5sign_for_bytes(
+            bytes_to_sign: bytes,
+    ) -> bytes:
+        """
+        MD5 Signature
+        @param string_to_sign: string
+        @return: signed bytes
+        """
+        return hashlib.md5(bytes_to_sign).digest()
