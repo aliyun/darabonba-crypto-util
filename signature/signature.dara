@@ -40,3 +40,10 @@ static function SHA256withRSASign(stringToSign: string, secret: string): bytes;
  * @return signed bytes
  */
 static function MD5Sign(stringToSign: string): bytes;
+
+/**
+ * MD5 Signature
+ * @param bytesToSign bytes
+ * @return signed bytes
+ */
+static function MD5SignForBytes(bytesToSign: bytes): bytes;

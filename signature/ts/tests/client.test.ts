@@ -99,5 +99,11 @@ describe('Tea Util', function () {
     const signed = client.MD5Sign(stringToSign);
     assert.strictEqual('7ac66c0f148de9519b8bd264312c4d64', encode.hexEncode(signed));
   });
+
+  it('MD5SignForBytes should ok', function () {
+    const stringToSign = "abcdefg";
+    const signed = client.MD5SignForBytes(Buffer.from(stringToSign));
+    assert.strictEqual('7ac66c0f148de9519b8bd264312c4d64', encode.hexEncode(signed));
+  });
   //deepStrictEqual
 })

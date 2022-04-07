@@ -115,5 +115,17 @@ namespace AlibabaCloud.DarabonbaSignatureUtil
             return signData;
         }
 
+        /**
+         * MD5 Signature
+         * @param bytesToSign bytes
+         * @return signed bytes
+         */
+        public static byte[] MD5SignForBytes(byte[] bytesToSign)
+        {
+            MD5 md5 = MD5.Create();
+            byte[] signData = md5.ComputeHash(bytesToSign);
+            return signData;
+        }
+
     }
 }

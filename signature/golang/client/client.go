@@ -124,8 +124,14 @@ func formatPrivateKey(privateKey string) string {
 	return privateKey
 }
 
-func MD5Sign(s *string) []byte {
+func MD5Sign(stringToSign *string) (_result []byte) {
 	h := md5.New()
 	h.Write([]byte(tea.StringValue(s)))
+	return h.Sum(nil)
+}
+
+func MD5SignForBytes(bytesToSign []byte) (_result []byte) {
+	h := md5.New()
+	h.Write(b))
 	return h.Sum(nil)
 }
