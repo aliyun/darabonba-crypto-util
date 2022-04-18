@@ -1,7 +1,7 @@
 {
   "scope": "darabonba",
   "name": "EncodeUtil",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "./encode.dara",
   "maintainers": [
     {
@@ -51,7 +51,7 @@
   },
   "php": {
     "package": "AlibabaCloud.Darabonba.EncodeUtil",
-    "clientName": "Encoder",
+    "clientName": "EncodeUtil",
     "packageInfo": {
       "name": "alibabacloud/darabonba-encode-util",
       "desc": "Darabonba Util Library for Alibaba Cloud PHP SDK",
