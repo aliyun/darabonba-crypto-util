@@ -48,11 +48,6 @@
   <dependencies>
     <dependency>
       <groupId>com.aliyun</groupId>
-      <artifactId>tea</artifactId>
-      <version>1.1.14</version>
-    </dependency>
-    <dependency>
-      <groupId>com.aliyun</groupId>
       <artifactId>darabonba-encode-util</artifactId>
       <version>0.0.1</version>
       <optional>true</optional>

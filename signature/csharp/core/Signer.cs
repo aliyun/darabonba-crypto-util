@@ -14,9 +14,6 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-using Tea;
-using Tea.Utils;
-
 
 namespace AlibabaCloud.DarabonbaSignatureUtil
 {
@@ -31,10 +28,21 @@ namespace AlibabaCloud.DarabonbaSignatureUtil
          */
         public static byte[] HmacSHA1Sign(string stringToSign, string secret)
         {
+            return HmacSHA1SignByBytes(stringToSign, Encoding.UTF8.GetBytes(secret));
+        }
+
+        /**
+         * HmacSHA1 Signature
+         * @param stringToSign string
+         * @param secret bytes
+         * @return signed bytes
+         */
+        public static byte[] HmacSHA1SignByBytes(string stringToSign, byte[] secret)
+        {
             byte[] signData;
             using (KeyedHashAlgorithm algorithm = CryptoConfig.CreateFromName("HMACSHA1") as KeyedHashAlgorithm)
             {
-                algorithm.Key = Encoding.UTF8.GetBytes(secret);
+                algorithm.Key = secret;
                 signData = algorithm.ComputeHash(Encoding.UTF8.GetBytes(stringToSign.ToCharArray()));
             }
             return signData;
@@ -48,10 +56,21 @@ namespace AlibabaCloud.DarabonbaSignatureUtil
          */
         public static byte[] HmacSHA256Sign(string stringToSign, string secret)
         {
+            return HmacSHA256SignByBytes(stringToSign, Encoding.UTF8.GetBytes(secret));
+        }
+
+        /**
+         * HmacSHA256 Signature
+         * @param stringToSign string
+         * @param secret bytes
+         * @return signed bytes
+         */
+        public static byte[] HmacSHA256SignByBytes(string stringToSign, byte[] secret)
+        {
             byte[] signData;
             using (KeyedHashAlgorithm algorithm = CryptoConfig.CreateFromName("HMACSHA256") as KeyedHashAlgorithm)
             {
-                algorithm.Key = Encoding.UTF8.GetBytes(secret);
+                algorithm.Key = secret;
                 signData = algorithm.ComputeHash(Encoding.UTF8.GetBytes(stringToSign.ToSafeString().ToCharArray()));
             }
 
@@ -66,13 +85,24 @@ namespace AlibabaCloud.DarabonbaSignatureUtil
          */
         public static byte[] HmacSM3Sign(string stringToSign, string secret)
         {
+            return HmacSM3SignByBytes(stringToSign, Encoding.Default.GetBytes(secret));
+        }
+
+        /**
+         * HmacSM3 Signature
+         * @param stringToSign string
+         * @param secret bytes
+         * @return signed bytes
+         */
+        public static byte[] HmacSM3SignByBytes(string stringToSign, byte[] secret)
+        {
             byte[] msg = Encoding.Default.GetBytes(stringToSign);
-            byte[] key = Encoding.Default.GetBytes(secret);
+            byte[] key = secret;
 
             KeyParameter keyParameter = new KeyParameter(key);
             SM3Digest sm3 = new SM3Digest();
 
-            HMac mac = new HMac(sm3);//����Կ���Ӵ��㷨
+            HMac mac = new HMac(sm3);
             mac.Init(keyParameter);
             mac.BlockUpdate(msg, 0, msg.Length);
             byte[] signData = new byte[mac.GetMacSize()];
@@ -110,9 +140,7 @@ namespace AlibabaCloud.DarabonbaSignatureUtil
          */
         public static byte[] MD5Sign(string stringToSign)
         {
-            MD5 md5 = MD5.Create();
-            byte[] signData = md5.ComputeHash(Encoding.UTF8.GetBytes(stringToSign.ToCharArray()));
-            return signData;
+            return MD5SignForBytes(Encoding.UTF8.GetBytes(stringToSign.ToCharArray()));
         }
 
         /**

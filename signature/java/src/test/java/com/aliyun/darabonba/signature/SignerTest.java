@@ -13,6 +13,9 @@ public class SignerTest {
         String sk = "sk#$!~~~";
         byte[] signed = Signer.HmacSHA1Sign(stringToSign, sk);
         Assert.assertEquals("7eV3A584uvdgKVk8Ck8r9ukg1gE=", Encoder.base64EncodeToString(signed));
+
+        signed = Signer.HmacSHA1SignByBytes(stringToSign, sk.getBytes("UTF-8"));
+        Assert.assertEquals("7eV3A584uvdgKVk8Ck8r9ukg1gE=", Encoder.base64EncodeToString(signed));
     }
 
     @Test
@@ -39,6 +42,9 @@ public class SignerTest {
         String expectString = "7070fc618be1a3bae79889f6c8edd47c6c6054c9dcee92b9228a6787ca3729e2";
         byte[] signed = Signer.HmacSHA256Sign(stringToSign, sk);
         Assert.assertEquals(expectString, Encoder.hexEncode(signed));
+
+        signed = Signer.HmacSHA256SignByBytes(stringToSign, sk.getBytes("UTF-8"));
+        Assert.assertEquals(expectString, Encoder.hexEncode(signed));
     }
 
     @Test
@@ -64,6 +70,9 @@ public class SignerTest {
                 + "SNzdR5kSfNvY";
         String expectString = "ab2d24a78bd8c1b24c20bb86c02b073ff26ef44b728cf0dcec928627dddd29ac";
         byte[] signed = Signer.HmacSM3Sign(stringToSign, sk);
+        Assert.assertEquals(expectString, Encoder.hexEncode(signed));
+
+        signed = Signer.HmacSM3SignByBytes(stringToSign, sk.getBytes("UTF-8"));
         Assert.assertEquals(expectString, Encoder.hexEncode(signed));
     }
 

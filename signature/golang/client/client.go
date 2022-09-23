@@ -33,8 +33,17 @@ const (
  * @return signed bytes
  */
 func HmacSHA1Sign(stringToSign *string, secret *string) (_result []byte) {
-	key := []byte(tea.StringValue(secret))
-	hmac := hmac.New(sha1.New, key)
+	return HmacSHA1SignByBytes(stringToSign, []byte(tea.StringValue(secret)))
+}
+
+/**
+ * HmacSHA1 Signature
+ * @param stringToSign string
+ * @param secret bytes
+ * @return signed bytes
+ */
+func HmacSHA1SignByBytes(stringToSign *string, secret []byte) (_result []byte) {
+	hmac := hmac.New(sha1.New, secret)
 	hmac.Write([]byte(tea.StringValue(stringToSign)))
 	return hmac.Sum(nil)
 }
@@ -46,7 +55,17 @@ func HmacSHA1Sign(stringToSign *string, secret *string) (_result []byte) {
  * @return signed bytes
  */
 func HmacSHA256Sign(stringToSign *string, secret *string) (_result []byte) {
-	h := hmac.New(sha256.New, []byte(tea.StringValue(secret)))
+	return HmacSHA256SignByBytes(stringToSign, []byte(tea.StringValue(secret)))
+}
+
+/**
+ * HmacSHA256 Signature
+ * @param stringToSign string
+ * @param secret bytes
+ * @return signed bytes
+ */
+func HmacSHA256SignByBytes(stringToSign *string, secret []byte) (_result []byte) {
+	h := hmac.New(sha256.New, secret)
 	_, err := h.Write([]byte(tea.StringValue(stringToSign)))
 	if err != nil {
 		return nil
@@ -61,7 +80,17 @@ func HmacSHA256Sign(stringToSign *string, secret *string) (_result []byte) {
  * @return signed bytes
  */
 func HmacSM3Sign(stringToSign *string, secret *string) (_result []byte) {
-	h := hmac.New(sm3.New, []byte(tea.StringValue(secret)))
+	return HmacSM3SignByBytes(stringToSign, []byte(tea.StringValue(secret)))
+}
+
+/**
+ * HmacSM3 Signature
+ * @param stringToSign string
+ * @param secret bytes
+ * @return signed bytes
+ */
+func HmacSM3SignByBytes(stringToSign *string, secret []byte) (_result []byte) {
+	h := hmac.New(sm3.New, secret)
 	_, err := h.Write([]byte(tea.StringValue(stringToSign)))
 	if err != nil {
 		return nil
@@ -125,9 +154,7 @@ func formatPrivateKey(privateKey string) string {
 }
 
 func MD5Sign(stringToSign *string) (_result []byte) {
-	h := md5.New()
-	h.Write([]byte(tea.StringValue(stringToSign)))
-	return h.Sum(nil)
+	return MD5SignForBytes([]byte(tea.StringValue(stringToSign)))
 }
 
 func MD5SignForBytes(bytesToSign []byte) (_result []byte) {
