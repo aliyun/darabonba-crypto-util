@@ -28,7 +28,6 @@
     "typescript": "^3.7.5"
   },
   "dependencies": {
-    "@alicloud/tea-typescript": "^1.7.1",
     "@alicloud/darabonba-encode-util": "^0.0.1"
   },
   "files": [

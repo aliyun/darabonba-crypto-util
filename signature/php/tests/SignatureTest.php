@@ -16,7 +16,7 @@ class ArrayTest extends TestCase
     {
         $this->assertEquals(
             '7eV3A584uvdgKVk8Ck8r9ukg1gE=',
-            base64_encode(Utils::toString(SignatureUtil::HmacSHA1Sign('abc~!@#', 'sk#$!~~~')))
+            base64_encode(Utils::toString(SignatureUtil::HmacSHA1SignByBytes('abc~!@#', Utils::toBytes('sk#$!~~~'))))
         );
 
         $secret = 'MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDk4WyBF8Cj9JVK7ua6nuVfXt2AWdfvhpfSTznM+Dg8m'
@@ -39,12 +39,12 @@ class ArrayTest extends TestCase
                 .'SNzdR5kSfNvY';
         $this->assertEquals(
             Utils::toBytes(hex2bin('7070fc618be1a3bae79889f6c8edd47c6c6054c9dcee92b9228a6787ca3729e2')),
-            SignatureUtil::HmacSHA256Sign('abcdefg', $secret)
+            SignatureUtil::HmacSHA256SignByBytes('abcdefg', Utils::toBytes($secret))
         );
 
         $this->assertEquals(
             Utils::toBytes(hex2bin('ab2d24a78bd8c1b24c20bb86c02b073ff26ef44b728cf0dcec928627dddd29ac')),
-            SignatureUtil::HmacSM3Sign('abcdefg', $secret)
+            SignatureUtil::HmacSM3SignByBytes('abcdefg', Utils::toBytes($secret))
         );
 
         $this->assertEquals(

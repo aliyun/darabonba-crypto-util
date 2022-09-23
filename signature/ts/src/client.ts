@@ -2,7 +2,6 @@
 /**
  * Signature Util for Darabonba. 
  */
-import * as $tea from '@alicloud/tea-typescript';
 import crypto from 'crypto';
 
 
@@ -21,6 +20,16 @@ export default class Client {
   }
 
   /**
+   * HmacSHA1 Signature
+   * @param stringToSign string
+   * @param secret bytes
+   * @return signed bytes
+   */
+  static HmacSHA1SignByBytes(stringToSign: string, secret: Buffer): Buffer {
+    return Client.HmacSHA1Sign(stringToSign, secret.toString());
+  }
+
+  /**
    * HmacSHA256 Signature
    * @param stringToSign string
    * @param secret string
@@ -33,6 +42,16 @@ export default class Client {
   }
 
   /**
+   * HmacSHA256 Signature
+   * @param stringToSign string
+   * @param secret bytes
+   * @return signed bytes
+   */
+  static HmacSHA256SignByBytes(stringToSign: string, secret: Buffer): Buffer {
+    return Client.HmacSHA256Sign(stringToSign, secret.toString());
+  }
+
+  /**
    * HmacSM3 Signature
    * @param stringToSign string
    * @param secret string
@@ -42,6 +61,16 @@ export default class Client {
     const obj = crypto.createHmac('sm3', secret);
     obj.update(stringToSign);
     return obj.digest();
+  }
+
+  /**
+   * HmacSM3 Signature
+   * @param stringToSign string
+   * @param secret bytes
+   * @return signed bytes
+   */
+  static HmacSM3SignByBytes(stringToSign: string, secret: Buffer): Buffer {
+    return Client.HmacSM3Sign(stringToSign, secret.toString());
   }
 
   /**
@@ -81,8 +110,8 @@ export default class Client {
    * @param bytesToSign bytes
    * @return signed bytes
    */
-   static MD5SignForBytes(bytesToSign: Buffer): Buffer {
-    return crypto.createHash('md5').update(bytesToSign.toString(), 'utf8').digest();
+  static MD5SignForBytes(bytesToSign: Buffer): Buffer {
+    return Client.MD5Sign(bytesToSign.toString());
   }
 
 }

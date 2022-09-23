@@ -1,6 +1,3 @@
-
-
-import * as $tea from '@alicloud/tea-typescript';
 import 'mocha';
 import assert from 'assert';
 import client from '../src/client'
@@ -9,7 +6,7 @@ describe('Tea Util', function () {
   it('HmacSHA1Sign should ok', function () {
     const stringToSign = "abc~!@#";
     const sk = "sk#$!~~~";
-    const result = client.HmacSHA1Sign(stringToSign, sk)
+    const result = client.HmacSHA1SignByBytes(stringToSign, Buffer.from(sk))
     assert.strictEqual('7eV3A584uvdgKVk8Ck8r9ukg1gE=', encode.base64EncodeToString(result));
   });
 
@@ -35,7 +32,7 @@ describe('Tea Util', function () {
       + "iYSz/4+KyWuOdRaFbWY/Y4jq7lVinc1S1OR8yqOSyCiYIJaDYHbPsMdZ9twX0aY/QkN+O9RyGnwL4Lmbkt/lry+OyC1vZEF"
       + "SNzdR5kSfNvY";
     const expectString = "7070fc618be1a3bae79889f6c8edd47c6c6054c9dcee92b9228a6787ca3729e2";
-    var res = client.HmacSHA256Sign(stringToSign, sk);
+    var res = client.HmacSHA256SignByBytes(stringToSign, Buffer.from(sk));
     assert.strictEqual(expectString, encode.hexEncode(res));
   });
 
@@ -60,7 +57,7 @@ describe('Tea Util', function () {
       + "iYSz/4+KyWuOdRaFbWY/Y4jq7lVinc1S1OR8yqOSyCiYIJaDYHbPsMdZ9twX0aY/QkN+O9RyGnwL4Lmbkt/lry+OyC1vZEF"
       + "SNzdR5kSfNvY";
     const expectString = "ab2d24a78bd8c1b24c20bb86c02b073ff26ef44b728cf0dcec928627dddd29ac";
-    const signed = client.HmacSM3Sign(stringToSign, sk);
+    const signed = client.HmacSM3SignByBytes(stringToSign, Buffer.from(sk));
     assert.strictEqual(expectString, encode.hexEncode(signed));
   });
 

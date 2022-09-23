@@ -1,7 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
 package com.aliyun.darabonba.signature;
 
-import com.aliyun.tea.*;
 import com.aliyun.darabonba.encode.Encoder;
 import org.bouncycastle.crypto.digests.SM3Digest;
 import org.bouncycastle.crypto.macs.HMac;
@@ -10,13 +9,11 @@ import org.bouncycastle.crypto.params.KeyParameter;
 import javax.crypto.Mac;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.KeyFactory;
 import java.security.PrivateKey;
 import java.security.Signature;
 import java.security.spec.PKCS8EncodedKeySpec;
-import java.util.Arrays;
 
 public class Signer {
     private final static String ENCODING = "UTF-8";
@@ -31,8 +28,18 @@ public class Signer {
      * @return signed bytes
      */
     public static byte[] HmacSHA1Sign(String stringToSign, String secret) throws Exception {
+        return HmacSHA1SignByBytes(stringToSign, secret.getBytes(ENCODING));
+    }
+
+    /**
+     * HmacSHA1 Signature
+     * @param stringToSign string
+     * @param secret bytes
+     * @return signed bytes
+     */
+    public static byte[] HmacSHA1SignByBytes(String stringToSign, byte[] secret) throws Exception {
         Mac mac = Mac.getInstance("HmacSHA1");
-        mac.init(new SecretKeySpec(secret.getBytes(ENCODING), "HmacSHA1"));
+        mac.init(new SecretKeySpec(secret, "HmacSHA1"));
         byte[] signData = mac.doFinal(stringToSign.getBytes(ENCODING));
         return signData;
     }
@@ -45,8 +52,18 @@ public class Signer {
      * @return signed bytes
      */
     public static byte[] HmacSHA256Sign(String stringToSign, String secret) throws Exception {
+        return HmacSHA256SignByBytes(stringToSign, secret.getBytes(ENCODING));
+    }
+
+    /**
+     * HmacSHA256 Signature
+     * @param stringToSign string
+     * @param secret bytes
+     * @return signed bytes
+     */
+    public static byte[] HmacSHA256SignByBytes(String stringToSign, byte[] secret) throws Exception {
         Mac sha256_HMAC = Mac.getInstance("HmacSHA256");
-        SecretKeySpec secret_key = new SecretKeySpec(secret.getBytes(), "HmacSHA256");
+        SecretKeySpec secret_key = new SecretKeySpec(secret, "HmacSHA256");
         sha256_HMAC.init(secret_key);
         byte[] signData = sha256_HMAC.doFinal(stringToSign.getBytes());
         return signData;
@@ -60,7 +77,17 @@ public class Signer {
      * @return signed bytes
      */
     public static byte[] HmacSM3Sign(String stringToSign, String secret) throws Exception {
-        SecretKey key = new SecretKeySpec((secret).getBytes(ENCODING), "HMAC-SM3");
+        return HmacSM3SignByBytes(stringToSign, secret.getBytes(ENCODING));
+    }
+
+    /**
+     * HmacSM3 Signature
+     * @param stringToSign string
+     * @param secret bytes
+     * @return signed bytes
+     */
+    public static byte[] HmacSM3SignByBytes(String stringToSign, byte[] secret) throws Exception {
+        SecretKey key = new SecretKeySpec(secret, "HMAC-SM3");
         HMac mac = new HMac(new SM3Digest());
         byte[] signData = new byte[mac.getMacSize()];
         byte[] inputBytes = stringToSign.getBytes(ENCODING);
@@ -110,9 +137,7 @@ public class Signer {
      * @return signed bytes
      */
     public static byte[] MD5Sign(String stringToSign) throws Exception {
-        MessageDigest md = MessageDigest.getInstance("MD5");
-        byte[] signData = md.digest(stringToSign.getBytes(ENCODING));
-        return signData;
+        return MD5SignForBytes(stringToSign.getBytes(ENCODING));
     }
 
     /**

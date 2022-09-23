@@ -7,18 +7,21 @@
 
 namespace AlibabaCloud\Darabonba\SignatureUtil;
 
-use AlibabaCloud\Tea\Model;
-use AlibabaCloud\Tea\Request;
 use AlibabaCloud\Tea\Utils\Utils;
 use OneSm\Sm3;
-use Psr\Http\Message\StreamInterface;
 
 
 /**
  * This is a array module.
  */
 class SignatureUtil
-{   
+{
+    /**
+     * HmacSHA1 Signature
+     * @param string $stringToSign string
+     * @param string $secret string
+     * @return array signed bytes
+     */
     public static function HmacSHA1Sign($stringToSign, $secret)
     {
         if (!isset($stringToSign) || !isset($secret)) {
@@ -29,8 +32,21 @@ class SignatureUtil
     }
 
     /**
-     * @param string $raw
-     * @return bool
+     * HmacSHA1 Signature
+     * @param string $stringToSign string
+     * @param int[] $secret bytes
+     * @return array signed bytes
+     */
+    public static function HmacSHA1SignByBytes($stringToSign, $secret)
+    {
+        return self::HmacSHA1Sign($stringToSign, Utils::toString($secret));
+    }
+
+    /**
+     * HmacSHA256 Signature
+     * @param string $stringToSign string
+     * @param string $secret string
+     * @return array signed bytes
      */
     public static function HmacSHA256Sign($stringToSign, $secret)
     {
@@ -42,8 +58,21 @@ class SignatureUtil
     }
 
     /**
-     * @param string $raw
-     * @return bool
+     * HmacSHA256 Signature
+     * @param string $stringToSign string
+     * @param int[] $secret bytes
+     * @return array signed bytes
+     */
+    public static function HmacSHA256SignByBytes($stringToSign, $secret)
+    {
+        return self::HmacSHA256Sign($stringToSign, Utils::toString($secret));
+    }
+
+    /**
+     * HmacSM3 Signature
+     * @param string $stringToSign string
+     * @param string $secret string
+     * @return array signed bytes
      */
     public static function HmacSM3Sign($stringToSign, $secret)
     {
@@ -54,7 +83,19 @@ class SignatureUtil
         return Utils::toBytes($ret);
     }
 
-    private static function hmac_sm3($data, $key, $raw_output = false){
+    /**
+     * HmacSM3 Signature
+     * @param string $stringToSign string
+     * @param int[] $secret bytes
+     * @return array signed bytes
+     */
+    public static function HmacSM3SignByBytes($stringToSign, $secret)
+    {
+        return self::HmacSM3Sign($stringToSign, Utils::toString($secret));
+    }
+
+    private static function hmac_sm3($data, $key, $raw_output = false)
+    {
         $pack      = 'H' . \strlen(self::sm3('test'));
         $blocksize = 64;
         if (\strlen($key) > $blocksize) {
@@ -73,9 +114,11 @@ class SignatureUtil
         return (new Sm3())->sign($str);
     }
 
-     /**
-     * @param byte[] $raw
-     * @return bool
+    /**
+     * SHA256withRSA Signature
+     * @param string $stringToSign string
+     * @param string $secret string
+     * @return array signed bytes
      */
     public static function SHA256withRSASign($stringToSign, $secret)
     {
@@ -105,6 +148,6 @@ class SignatureUtil
      */
     public static function MD5SignForBytes($bytesToSign)
     {
-        return Utils::toBytes(md5(Utils::toString($bytesToSign), true));
+        return self::MD5Sign(Utils::toString($bytesToSign));
     }
 }

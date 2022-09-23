@@ -30,8 +30,21 @@ class Signer(object):
 
         @return: signed bytes
         """
+        return Signer.hmac_sha1sign_by_bytes(string_to_sign, secret.encode('utf-8'))
+
+    @staticmethod
+    def hmac_sha1sign_by_bytes(string_to_sign, secret):
+        """
+        HmacSHA1 Signature
+
+        @type string_to_sign: str
+        @param string_to_sign: string
+
+        @param secret: bytes
+
+        @return: signed bytes
+        """
         string_to_sign = string_to_sign.encode('utf-8')
-        secret = secret.encode('utf-8')
         return hmac.new(secret, string_to_sign,
                         digestmod=hashlib.sha1).digest()
 
@@ -48,8 +61,21 @@ class Signer(object):
 
         @return: signed bytes
         """
+        return Signer.hmac_sha256sign_by_bytes(string_to_sign, secret.encode('utf-8'))
+
+    @staticmethod
+    def hmac_sha256sign_by_bytes(string_to_sign, secret):
+        """
+        HmacSHA256 Signature
+
+        @type string_to_sign: str
+        @param string_to_sign: string
+
+        @param secret: bytes
+
+        @return: signed bytes
+        """
         string_to_sign = string_to_sign.encode('utf-8')
-        secret = secret.encode('utf-8')
         return hmac.new(secret, string_to_sign, hashlib.sha256).digest()
 
     @staticmethod
@@ -65,8 +91,21 @@ class Signer(object):
 
         @return: signed bytes
         """
+        return Signer.hmac_sm3sign_by_bytes(string_to_sign, secret.encode('utf-8'))
+
+    @staticmethod
+    def hmac_sm3sign_by_bytes(string_to_sign, secret):
+        """
+        HmacSM3 Signature
+
+        @type string_to_sign: str
+        @param string_to_sign: string
+
+        @param secret: bytes
+
+        @return: signed bytes
+        """
         string_to_sign = string_to_sign.encode('utf-8')
-        secret = secret.encode('utf-8')
         return hmac.new(secret, string_to_sign, Sm3).digest()
 
     @staticmethod
@@ -99,8 +138,7 @@ class Signer(object):
         @param string_to_sign: string
         @return: signed bytes
         """
-        string_to_sign = string_to_sign.encode('utf-8')
-        return hashlib.md5(string_to_sign).digest()
+        return Signer.md5sign_for_bytes(string_to_sign.encode('utf-8'))
 
     @staticmethod
     def md5sign_for_bytes(bytes_to_sign):
