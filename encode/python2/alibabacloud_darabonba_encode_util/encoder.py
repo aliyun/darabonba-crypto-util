@@ -79,9 +79,9 @@ class Encoder(object):
 
         @return: hashed bytes
         """
-        if signature_algorithm == 'ACS3-HMAC-SHA256' or signature_algorithm == 'ACS3-RSA-SHA256':
+        if 'HMAC-SHA256' in signature_algorithm or 'RSA-SHA256' in signature_algorithm:
             return hashlib.sha256(raw).digest()
-        elif signature_algorithm == 'ACS3-HMAC-SM3':
+        elif 'HMAC-SM3' in signature_algorithm:
             return hash_sm3(raw)
 
     @staticmethod

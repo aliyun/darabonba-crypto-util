@@ -13,9 +13,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-using Tea;
-using Tea.Utils;
-
 
 namespace AlibabaCloud.DarabonbaEncodeUtil
 {
@@ -105,7 +102,7 @@ namespace AlibabaCloud.DarabonbaEncodeUtil
          */
         public static byte[] Hash(byte[] raw, string signatureAlgorithm)
         {
-            if (signatureAlgorithm == "ACS3-HMAC-SHA256" || signatureAlgorithm == "ACS3-RSA-SHA256")
+            if (signatureAlgorithm.Contains("HMAC-SHA256") || signatureAlgorithm.Contains("RSA-SHA256"))
             {
                 byte[] signData;
                 using (SHA256 sha256 = new SHA256Managed())

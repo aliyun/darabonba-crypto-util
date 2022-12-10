@@ -1,6 +1,3 @@
-
-
-import * as $tea from '@alicloud/tea-typescript';
 import 'mocha';
 import assert from 'assert';
 import client from '../src/client'

@@ -2,7 +2,6 @@
 /**
  * Encode Util for Darabonba. 
  */
-import * as $tea from '@alicloud/tea-typescript';
 import crypto from 'crypto';
 
 
@@ -67,11 +66,11 @@ export default class Client {
     if (signatureAlgorithm == null) {
       return null;
     }
-    if (signatureAlgorithm === "ACS3-HMAC-SHA256" || signatureAlgorithm === "ACS3-RSA-SHA256") {
+    if (signatureAlgorithm.includes('HMAC-SHA256') || signatureAlgorithm.includes('RSA-SHA256')) {
       const obj = crypto.createHash('sha256');
       obj.update(raw);
       return obj.digest();
-    } else if (signatureAlgorithm == "ACS3-HMAC-SM3") {
+    } else if (signatureAlgorithm.includes('HMAC-SM3')) {
       const obj = crypto.createHash('sm3');
       obj.update(raw);
       return obj.digest();

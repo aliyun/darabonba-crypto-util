@@ -73,11 +73,11 @@ func HexEncode(raw []byte) (_result *string) {
  */
 func Hash(raw []byte, signatureAlgorithm *string) (_result []byte) {
 	signType := tea.StringValue(signatureAlgorithm)
-	if signType == "ACS3-HMAC-SHA256" || signType == "ACS3-RSA-SHA256" {
+	if strings.Contains(signType, "HMAC-SHA256") || strings.Contains(signType, "RSA-SHA256") {
 		h := sha256.New()
 		h.Write(raw)
 		return h.Sum(nil)
-	} else if signType == "ACS3-HMAC-SM3" {
+	} else if strings.Contains(signType, "HMAC-SM3") {
 		h := sm3.New()
 		h.Write(raw)
 		return h.Sum(nil)
