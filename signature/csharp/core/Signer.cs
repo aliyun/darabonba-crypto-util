@@ -71,7 +71,7 @@ namespace AlibabaCloud.DarabonbaSignatureUtil
             using (KeyedHashAlgorithm algorithm = CryptoConfig.CreateFromName("HMACSHA256") as KeyedHashAlgorithm)
             {
                 algorithm.Key = secret;
-                signData = algorithm.ComputeHash(Encoding.UTF8.GetBytes(stringToSign.ToSafeString().ToCharArray()));
+                signData = algorithm.ComputeHash(Encoding.UTF8.GetBytes(stringToSign.ToCharArray()));
             }
 
             return signData;
