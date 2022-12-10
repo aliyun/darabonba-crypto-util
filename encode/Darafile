@@ -1,7 +1,7 @@
 {
   "scope": "darabonba",
   "name": "EncodeUtil",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "./encode.dara",
   "maintainers": [
     {
@@ -23,13 +23,13 @@
     }
   },
   "releases": {
-    "java": "com.aliyun:darabonba-encode-util:0.0.1",
-    "go": "github.com/alibabacloud-go/darabonba-encode-util/client:v0.0.1",
-    "ts": "@alicloud/darabonba-encode-util:^0.0.1",
-    "python": "alibabacloud_darabonba_encode_util:0.0.1",
-    "python2": "alibabacloud_darabonba_encode_util_py2:0.0.1",
-    "csharp": "AlibabaCloud.DarabonbaEncodeUtil:0.0.1",
-    "php": "alibabacloud/darabonba-encode-util:^0.0.1"
+    "java": "com.aliyun:darabonba-encode-util:0.0.2",
+    "go": "github.com/alibabacloud-go/darabonba-encode-util/client:v0.0.2",
+    "ts": "@alicloud/darabonba-encode-util:^0.0.2",
+    "python": "alibabacloud_darabonba_encode_util:0.0.2",
+    "python2": "alibabacloud_darabonba_encode_util_py2:0.0.2",
+    "csharp": "AlibabaCloud.DarabonbaEncodeUtil:0.0.2",
+    "php": "alibabacloud/darabonba-encode-util:^0.0.2"
   },
   "libraries": {
   },
