@@ -29,7 +29,6 @@
     "typescript": "^3.7.5"
   },
   "dependencies": {
-    "@alicloud/tea-typescript": "^1.7.1",
     "moment": "^2.29.1"
   },
   "files": [

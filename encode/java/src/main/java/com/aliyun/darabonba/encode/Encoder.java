@@ -14,9 +14,9 @@ public class Encoder {
     public final static String ENCODING = "UTF-8";
     public static final String HASH_SHA256 = "SHA-256";
     public static final String HASH_SM3 = "SM3";
-    public static final String HMAC_SHA256 = "ACS3-HMAC-SHA256";
-    public static final String RSA_SHA256 = "ACS3-RSA-SHA256";
-    public static final String HMAC_SM3 = "ACS3-HMAC-SM3";
+    public static final String HMAC_SHA256 = "HMAC-SHA256";
+    public static final String RSA_SHA256 = "RSA-SHA256";
+    public static final String HMAC_SM3 = "HMAC-SM3";
 
     /**
      * Encode the URL
@@ -85,10 +85,10 @@ public class Encoder {
         if (signatureAlgorithm == null) {
             return null;
         }
-        if (signatureAlgorithm.equals(HMAC_SHA256) || signatureAlgorithm.equals(RSA_SHA256)) {
+        if (signatureAlgorithm.contains(HMAC_SHA256) || signatureAlgorithm.contains(RSA_SHA256)) {
             MessageDigest digest = MessageDigest.getInstance(HASH_SHA256);
             return digest.digest(raw);
-        } else if (signatureAlgorithm.equals(HMAC_SM3)) {
+        } else if (signatureAlgorithm.contains(HMAC_SM3)) {
             BouncyCastleProvider provider = new BouncyCastleProvider();
             MessageDigest digest = MessageDigest.getInstance(HASH_SM3, provider);
             return digest.digest(raw);

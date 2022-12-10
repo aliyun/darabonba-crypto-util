@@ -7,18 +7,15 @@
 
 namespace AlibabaCloud\Darabonba\EncodeUtil;
 
-use AlibabaCloud\Tea\Model;
-use AlibabaCloud\Tea\Request;
 use AlibabaCloud\Tea\Utils\Utils;
 use OneSm\Sm3;
-use Psr\Http\Message\StreamInterface;
 
 
 /**
  * This is a array module.
  */
 class EncodeUtil
-{   
+{
     public static function urlEncode($raw)
     {
         if (empty($raw)) {
@@ -64,7 +61,7 @@ class EncodeUtil
         return substr($ret, 0, -1);
     }
 
-     /**
+    /**
      * @param byte[] $raw
      * @return bool
      */
@@ -76,7 +73,7 @@ class EncodeUtil
         $ret = '';
         foreach ($raw as $i => $b) {
             $str = dechex($b);
-            if(strlen($str) < 2) {
+            if (strlen($str) < 2) {
                 $str = str_pad($str, 2, '0', STR_PAD_LEFT);
             }
             $ret .= $str;
@@ -84,7 +81,7 @@ class EncodeUtil
         return $ret;
     }
 
-     /**
+    /**
      * @param byte[] $raw
      * @param string $algorithm
      * @return bytes[] hashed bytes
@@ -97,10 +94,10 @@ class EncodeUtil
 
         $str = Utils::toString($raw);
 
-        if($algorithm === 'ACS3-HMAC-SHA256' || $algorithm === 'ACS3-RSA-SHA256') {
+        if (false !== strpos($algorithm, 'HMAC-SHA256') || false !== strpos($algorithm, 'RSA-SHA256')) {
             $res = hash('sha256', $str, true);
             return Utils::toBytes($res);
-        } else if($algorithm === 'ACS3-HMAC-SM3') {
+        } else if (false !== strpos($algorithm, 'HMAC-SM3')) {
             $res = self::sm3($str);
             return Utils::toBytes(hex2bin($res));
         }
@@ -112,7 +109,8 @@ class EncodeUtil
         return (new Sm3())->sign($str);
     }
 
-    public static function base64EncodeToString($raw) {
+    public static function base64EncodeToString($raw)
+    {
         if (empty($raw)) {
             return '';
         }
@@ -120,11 +118,12 @@ class EncodeUtil
         return base64_encode($str);
     }
 
-    public static function  base64Decode($raw) {
+    public static function  base64Decode($raw)
+    {
         if (empty($raw)) {
             return null;
         }
-        
+
         $str = base64_decode($raw);
         return Utils::toBytes($str);
     }
