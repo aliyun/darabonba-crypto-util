@@ -1,7 +1,7 @@
 {
   "scope": "darabonba",
   "name": "EncodeUtil",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "./encode.dara",
   "maintainers": [
     {
@@ -23,7 +23,7 @@
     }
   },
   "releases": {
-    "java": "com.aliyun:darabonba-encode-util:0.0.2",
+    "java": "com.aliyun:darabonba-encode-util:0.0.3",
     "go": "github.com/alibabacloud-go/darabonba-encode-util/client:v0.0.2",
     "ts": "@alicloud/darabonba-encode-util:^0.0.2",
     "python": "alibabacloud_darabonba_encode_util:0.0.2",
