@@ -88,7 +88,7 @@ class EncodeUtil
      */
     public static function hash($raw, $algorithm)
     {
-        if (empty($raw) || empty($algorithm)) {
+        if ($raw === null) {
             return null;
         }
 
