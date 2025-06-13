@@ -1,7 +1,7 @@
 {
   "scope": "darabonba",
   "name": "SignatureUtil",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "main": "./signature.dara",
   "maintainers": [
     {
@@ -29,6 +29,7 @@
     "python": "alibabacloud_darabonba_signature_util:0.0.4",
     "python2": "alibabacloud_darabonba_signature_util_py2:0.0.4",
     "csharp": "AlibabaCloud.DarabonbaSignatureUtil:0.0.5",
+    "cpp": "darabonba_core:master",
     "php": "alibabacloud/darabonba-signature-util:^0.0.4"
   },
   "libraries": {
@@ -84,11 +85,8 @@
     }
   },
   "cpp": {
-    "packageInfo": {
-      "git": {
-        "scope": "alibabaCloud",
-        "project": "tea-signature-util"
-      }
-    }
+    "className": "Signer",
+    "namespace": "Darabonba::Signature",
+    "header": "darabonba/signature/Signer.hpp"
   }
 }
