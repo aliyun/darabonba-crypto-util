@@ -26,7 +26,9 @@ export default class Client {
    * @return signed bytes
    */
   static HmacSHA1SignByBytes(stringToSign: string, secret: Buffer): Buffer {
-    return Client.HmacSHA1Sign(stringToSign, secret.toString());
+    const obj = crypto.createHmac('sha1', secret);
+    obj.update(stringToSign);
+    return obj.digest();
   }
 
   /**
@@ -48,7 +50,9 @@ export default class Client {
    * @return signed bytes
    */
   static HmacSHA256SignByBytes(stringToSign: string, secret: Buffer): Buffer {
-    return Client.HmacSHA256Sign(stringToSign, secret.toString());
+    const obj = crypto.createHmac('sha256', secret);
+    obj.update(stringToSign);
+    return obj.digest();
   }
 
   /**
@@ -70,7 +74,9 @@ export default class Client {
    * @return signed bytes
    */
   static HmacSM3SignByBytes(stringToSign: string, secret: Buffer): Buffer {
-    return Client.HmacSM3Sign(stringToSign, secret.toString());
+    const obj = crypto.createHmac('sm3', secret);
+    obj.update(stringToSign);
+    return obj.digest();
   }
 
   /**
@@ -111,7 +117,7 @@ export default class Client {
    * @return signed bytes
    */
   static MD5SignForBytes(bytesToSign: Buffer): Buffer {
-    return Client.MD5Sign(bytesToSign.toString());
+    return crypto.createHash('md5').update(bytesToSign).digest();
   }
 
 }
