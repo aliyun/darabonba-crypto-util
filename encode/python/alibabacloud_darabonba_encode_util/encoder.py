@@ -94,4 +94,4 @@ class Encoder:
         @param src: string
         @return: dncoded byte array
         """
-        return base64.b64encode(src).decode('utf-8')
+        return base64.b64decode(src)

@@ -1,5 +1,12 @@
 runtime/
 .idea/
 .vscode/
+.venv/
 __pycache__/
+*.pyc
+.coverage
+htmlcov/
 .pytest_cache/
+*.egg-info/
+dist/
+build/
