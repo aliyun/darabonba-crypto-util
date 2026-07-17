@@ -26,8 +26,8 @@
     "java": "com.aliyun:darabonba-encode-util:0.0.3",
     "go": "github.com/alibabacloud-go/darabonba-encode-util/client:v0.0.2",
     "ts": "@alicloud/darabonba-encode-util:^0.0.2",
-    "python": "alibabacloud_darabonba_encode_util:0.0.2",
-    "python2": "alibabacloud_darabonba_encode_util_py2:0.0.2",
+    "python": "alibabacloud_darabonba_encode_util:0.0.3",
+    "python2": "alibabacloud_darabonba_encode_util_py2:0.0.3",
     "csharp": "AlibabaCloud.DarabonbaEncodeUtil:0.0.2",
     "php": "alibabacloud/darabonba-encode-util:^0.0.2"
   },
